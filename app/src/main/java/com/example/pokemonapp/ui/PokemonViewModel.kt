@@ -1,4 +1,4 @@
-package com.example.pokemonapp.viewModel
+package com.example.pokemonapp.ui
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

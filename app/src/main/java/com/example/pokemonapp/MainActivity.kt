@@ -7,7 +7,7 @@ import androidx.activity.viewModels
 import androidx.compose.material3.Surface
 import com.example.pokemonapp.ui.PokemonListScreen
 import com.example.pokemonapp.ui.theme.PokemonAppTheme
-import com.example.pokemonapp.viewModel.PokemonViewModel
+import com.example.pokemonapp.ui.PokemonViewModel
 
 class MainActivity : ComponentActivity() {
 

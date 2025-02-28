@@ -1,4 +1,4 @@
-package com.example.pokemonapp.service
+package com.example.pokemonapp.api
 
 import com.example.pokemonapp.model.Pokemon
 import retrofit2.Response
