@@ -15,7 +15,8 @@ class PokemonViewModel : ViewModel() {
     private val _pokemonList = MutableLiveData<List<Pokemon>>()
     val pokemonList: LiveData<List<Pokemon>> = _pokemonList
 
-    private fun loadRandomPokemonList() {
+    fun loadRandomPokemonList() {
+        _pokemonList.value = emptyList()
         viewModelScope.launch {
             val newList = mutableSetOf<Pokemon>()
             val usedIds = mutableSetOf<Int>()
