@@ -7,36 +7,30 @@ import androidx.lifecycle.viewModelScope
 import com.example.pokemonapp.api.PokemonInstance
 import com.example.pokemonapp.model.Pokemon
 import kotlinx.coroutines.launch
-import kotlin.random.Random
 
 class PokemonViewModel : ViewModel() {
 
     private val pokemonApi = PokemonInstance.pokemonApi
     private val _pokemonList = MutableLiveData<List<Pokemon>>()
+    private val totalPokemon = 1025
+    private val pokemonListSize = 15
     val pokemonList: LiveData<List<Pokemon>> = _pokemonList
 
     fun loadRandomPokemonList() {
         _pokemonList.value = emptyList()
         viewModelScope.launch {
-            val newList = mutableSetOf<Pokemon>()
-            val usedIds = mutableSetOf<Int>()
+            val randomIds = (1..totalPokemon).shuffled().take(pokemonListSize)
+            val newList = mutableListOf<Pokemon>()
 
-            while (newList.size < 15) {
-                val randomId = Random.nextInt(1, 1025)
-
-                if (randomId !in usedIds) {
-                    val response = try {
-                        pokemonApi.getPokemon(randomId.toString())
-                    } catch (exception: Exception) {
-                        null
-                    }
-                    response?.body()?.let {
-                        newList.add(it)
-                        usedIds.add(randomId)
-                    }
+            randomIds.forEach { id ->
+                val response = try {
+                    pokemonApi.getPokemon(id.toString())
+                } catch (exception: Exception) {
+                    null
                 }
+                response?.body()?.let { newList.add(it) }
             }
-            _pokemonList.value = newList.toList()
+            _pokemonList.value = newList
         }
     }
 
