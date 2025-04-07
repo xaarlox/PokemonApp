@@ -5,6 +5,9 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -16,19 +19,25 @@ import com.example.pokemonapp.model.Pokemon
 
 @Composable
 fun PokemonCard(pokemon: Pokemon) {
-    Column(
-        modifier = Modifier
-            .padding(8.dp),
-        horizontalAlignment = Alignment.CenterHorizontally
+    Card(
+        shape = RoundedCornerShape(20.dp),
+        elevation = CardDefaults.cardElevation(defaultElevation = 5.dp),
+        modifier = Modifier.padding(20.dp)
     ) {
-        AsyncImage(
-            model = pokemon.sprites.front_default,
-            contentDescription = pokemon.name,
-            modifier = Modifier.size(120.dp)
-        )
-        Spacer(modifier = Modifier.height(5.dp))
-        Text(text = pokemon.name, fontWeight = FontWeight.Bold)
-        pokemon.moves.take(2).forEach { move ->
-            Text(text = move.move.name) }
+        Column(
+            modifier = Modifier
+                .padding(15.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            AsyncImage(
+                model = pokemon.sprites.front_default,
+                contentDescription = pokemon.name,
+                modifier = Modifier.size(120.dp)
+            )
+            Spacer(modifier = Modifier.height(5.dp))
+            Text(text = pokemon.name, fontWeight = FontWeight.Bold)
+            pokemon.moves.take(2).forEach { move ->
+                Text(text = move.move.name) }
+        }
     }
 }
