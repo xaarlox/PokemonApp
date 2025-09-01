@@ -42,6 +42,7 @@ The app follows modern Android development practices with *clean separation of c
 
 
 ### Screenshots
+Below you can see the main interface and functionality of the Pokemon app:
 
 | Main Screen | Sorting Menu |
 |-------------|----------------|
