@@ -45,7 +45,7 @@ The app follows modern Android development practices with *clean separation of c
 Below you can see the main interface and functionality of the Pokemon app:
 
 | Main Screen | Sorting Menu |
-|-------------|----------------|
+|-------------|--------------|
 | <img src="https://github.com/user-attachments/assets/5d358b06-fc2d-4e9a-a307-ae2c7c9fc312" width="300"/> | <img src="https://github.com/user-attachments/assets/4391482b-c501-40a0-85c2-ffe0ea1a3012" width="300"/> |
 | *Main Pokemon list with Reload button*. | *Dropdown menu with various sorting options*. |
 
